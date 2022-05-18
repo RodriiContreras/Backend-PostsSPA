@@ -6,7 +6,7 @@ const UserSchema = Schema({
        required:true,
        unique:true
    },
-   state:{
+   description:{
     type:String,
    },
    password:{
@@ -18,9 +18,9 @@ const UserSchema = Schema({
        required:true,
        unique:true
    },
-   posts:{
+   image:{
     type:Schema.Types.ObjectId,
-    ref:'Post'
+    required:true,
    },
    cellphone:{
        type:Number,
@@ -29,4 +29,9 @@ const UserSchema = Schema({
    }
 })
 
+// UserSchema.methods.setImgUser = function setImgUser(file){
+
+//    this.image= `${file}`
+//    console.log(file)
+// }
 module.exports = model('User',UserSchema)

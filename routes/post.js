@@ -1,8 +1,11 @@
 const {Router} = require('express');
-const {} = require('../controller/post')
+const {createPost} = require('../controller/post')
 
 
 const router = Router();
+
+router.post('/create-posts',createPost)
+
 
 
 

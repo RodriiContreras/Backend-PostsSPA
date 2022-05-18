@@ -1,8 +1,14 @@
 const {Schema,model} = require('mongoose')
 
-const UserSchema = Schema({
+const PostSchema = Schema({
    img:{
-       type:String,
+    type:String,
+    required:true
+   },
+   userImage:{
+   type:Schema.Types.String,
+   ref:'User',
+   required:true
    },
    nickname:{
        type:Schema.Types.ObjectId,
@@ -10,9 +16,8 @@ const UserSchema = Schema({
        ref:'User',
        unique:true
    },
-   posts:{
-    type:Schema.Types.ObjectId,
-    ref:'Post'
+   description:{
+     type:String
    },
    date:{
        type:Date,
@@ -20,4 +25,4 @@ const UserSchema = Schema({
    }
 })
 
-module.exports = model('Post',UserSchema)
+module.exports = model('Post',PostSchema)
